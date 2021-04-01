@@ -23,8 +23,8 @@ create_playlist_counter = 0
 class Spotify:
     def __init__(self):
         # initialize a user id by client id and secret id
-        # self._sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="3234d025cf284364bc4a0065254a42be",
-        #                                                            client_secret="be160b11ea984c00931d0f0127b8190d"))
+        # self._sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="{your client id}",
+        #                                                            client_secret="{your secret client id}"))
         #
         # # search for songs from artists ('n' items)
         # results = self._sp.search(q='Lil Uzi Vert', limit=10)
@@ -34,8 +34,8 @@ class Spotify:
         #     print(f"{index + 1:>2}: {track['name']}")
 
         # initialize a user id with redirect url and scope
-        self._CLIENT_ID = "3234d025cf284364bc4a0065254a42be"
-        self._CLIENT_SECRET = "be160b11ea984c00931d0f0127b8190d"
+        self._CLIENT_ID = "{your client id}"
+        self._CLIENT_SECRET = "{your secret client id}"
         self._REDIRECT_URL = "https://jdinh782.wixsite.com/lifeofjdinh"  # continuously update this
         self._SCOPE = "user-read-playback-state user-modify-playback-state playlist-modify-public " \
                       "playlist-modify-private user-top-read"
