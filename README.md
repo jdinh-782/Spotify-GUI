@@ -14,7 +14,7 @@ python -m pip install --upgrade pip
 ```
 
 ### Setup
-* You must have a valid client and client_secret id from the official Spotify Web API in order to access a user's Spotify information. <br>
+* You must have a valid ```client id``` and ```client_secret id``` from the official Spotify Web API in order to access a user's Spotify information. <br>
 * Please visit https://developer.spotify.com/documentation/web-api/quick-start/ to learn how to setup this project with your API.
 
 ### Installation
