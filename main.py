@@ -22,21 +22,10 @@ create_playlist_counter = 0
 
 class Spotify:
     def __init__(self):
-        # initialize a user id by client id and secret id
-        # self._sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="{your client id}",
-        #                                                            client_secret="{your secret client id}"))
-        #
-        # # search for songs from artists ('n' items)
-        # results = self._sp.search(q='Lil Uzi Vert', limit=10)
-        #
-        # print("Lil Uzi Vert")
-        # for index, track in enumerate(results['tracks']['items']):
-        #     print(f"{index + 1:>2}: {track['name']}")
-
         # initialize a user id with redirect url and scope
         self._CLIENT_ID = "{your client id}"
         self._CLIENT_SECRET = "{your secret client id}"
-        self._REDIRECT_URL = "https://jdinh782.wixsite.com/lifeofjdinh"  # continuously update this
+        self._REDIRECT_URL = ""  # continuously update this
         self._SCOPE = "user-read-playback-state user-modify-playback-state playlist-modify-public " \
                       "playlist-modify-private user-top-read"
 
@@ -45,39 +34,19 @@ class Spotify:
                                                                   redirect_uri=self._REDIRECT_URL,
                                                                   scope=self._SCOPE))
 
-        # prints out songs from user's playlist
-        # url = 'spotify:playlist:20LtD89u2QvuiJ02ZFf99Q'
-        # results = self._sp_user.playlist_items(url)
-        # playlist = self._sp_user.playlist(url)
-        #
-        # print(f"\n{playlist['name']} - {playlist['owner']['display_name']}")
-        #
-        # for index, item in enumerate(results['items'][:10]):
-        #     track = item['track']
-        #     print(f"{index + 1:>2}: {track['artists'][0]['name']} - {track['name']}")
-
         self._currently_playing = self._sp_user.currently_playing()
 
         self._artist_name = self._currently_playing['item']['artists'][0]['name']
         self._currently_playing_track_name = self._currently_playing['item']['name']
 
-        # print(f"\n{self._currently_playing_track_name} - {self._artist_name}")
-
         s1 = self._currently_playing['item']['album']['images'][0]
-
-        # print(s.get('url'))  # gets the url from the current song
 
         current_song_image_url = s1.get('url')
 
         u.urlretrieve(current_song_image_url, "pic.png")
 
-        # print(f"{self._currently_playing['item']['uri']}")
-
         # prints user's top artists (short_term = 20 results)
         self._user_top_artists = self._sp_user.current_user_top_artists(limit=20, time_range='short_term')
-
-        # for i in range(0, 19):
-        #     print(self._user_top_artists['items'][i]['name'])
 
     def return_currently_playing_track_name(self):
         return self._currently_playing_track_name
@@ -288,23 +257,6 @@ class MediaPlayback(Spotify):
         # update the track image
         t = Timer(0.5, self.update_track_details)  # use 0.5 or 1 to be safe
         t.start()
-
-        # currently_playing = self._sp_user.currently_playing()
-        # new_track_name = currently_playing['item']['name']
-        # currently_playing_track_text.configure(text=new_track_name)
-        #
-        # new_track_artist = currently_playing['item']['artists'][0]['name']
-        # currently_playing_artist_text.configure(text=f"Main Artist: {new_track_artist}")
-        #
-        # current_track = currently_playing['item']['album']['images'][0]
-        #
-        # # fix this so that image updates in real time
-        # current_song_image_url = current_track.get('url')
-        # u.urlretrieve(current_song_image_url, "pic.png")
-        # new_track_image = "pic.png"
-        #
-        # root.new_track_image = ImageTk.PhotoImage(Image.open(new_track_image).resize((260, 260)))
-        # image.configure(image=root.new_track_image)
 
     # goes to the previous song
     def previous_button_action(self):
