@@ -42,5 +42,5 @@ For any concerns, feel free to reach out to me by [email](jdinh782@gmail.com).
 [Johnson Dinh](https://www.linkedin.com/in/johnson-dinh/) <br>
 
 ## Acknowledgements
-[Spotify](https://developer.spotify.com/documentation/web-api/) <br>
+[Spotify Web API](https://developer.spotify.com/documentation/web-api/) <br>
 [Spotipy](https://spotipy.readthedocs.io/en/master/)
