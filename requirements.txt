@@ -1,0 +1,9 @@
+###### Requirements without Version Specifiers ######
+spotipy
+spotipy.oauth2
+tkinter
+Pillow
+urllib
+threading
+requests
+io
